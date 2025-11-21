@@ -1,14 +1,12 @@
 import Cookies from "universal-cookie";
-
-// !CHANGETHIS
+import { ENV } from "@/configs/environment";
 
 const cookies = new Cookies();
 
-export const getToken = (): string => cookies.get("@example/token");
+export const getToken = (): string => cookies.get(ENV.TOKEN_KEY);
 
 export const setToken = (token: string) => {
-	cookies.set("@example/token", token, { path: "/" });
+	cookies.set(ENV.TOKEN_KEY, token, { path: "/" });
 };
 
-export const removeToken = () =>
-	cookies.remove("@example/token", { path: "/" });
+export const removeToken = () => cookies.remove(ENV.TOKEN_KEY, { path: "/" });
